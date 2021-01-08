@@ -5,10 +5,11 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import generics
-from rest_framework.generics import RetrieveUpdateDestroyAPIView
+from rest_framework.generics import RetrieveUpdateDestroyAPIView,RetrieveAPIView
 from .serializers import UserSerializer,RegistrationSerializer,LogoutSerializer
 from .models import User
 from django.contrib.auth import get_user_model
+from django.shortcuts import get_object_or_404
 
 
 User = get_user_model()
@@ -50,3 +51,17 @@ class UpdateUserView(RetrieveUpdateDestroyAPIView):
         return queryset
     serializer_class = UserSerializer
     permission_classes=(IsAuthenticated,IsAdminUser)
+
+
+
+
+
+class UserViewView(RetrieveAPIView):
+    
+    queryset= User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes=(IsAuthenticated,)
+    
+    def get_queryset(self):
+        queryset = User.objects.filter(id=self.kwargs["pk"])
+        return queryset
