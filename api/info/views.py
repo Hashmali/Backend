@@ -28,4 +28,6 @@ class CarView(RetrieveUpdateDestroyAPIView):
     def get_queryset(self):
         queryset = Car.objects.filter(id=self.kwargs["pk"])
         return queryset
+
+    permission_classes=[IsAuthenticated,]
    

@@ -9,7 +9,7 @@ class CarSerializer(serializers.ModelSerializer):
         fields="__all__"
 
 class InfoSerializers(serializers.ModelSerializer):
-    car=serializers.HyperlinkedRelatedField(many=True,read_only=True,view_name='car')
+    car=CarSerializer(many=True,read_only=True)
     user1=UserSerializer(read_only=True)
     user2=UserSerializer(read_only=True)
     class Meta:
