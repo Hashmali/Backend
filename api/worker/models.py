@@ -56,11 +56,19 @@ class User(AbstractBaseUser, PermissionsMixin):
 
   username = None
 
+<<<<<<< HEAD
   email = models.EmailField(null=True,blank=True)
 
   image = models.ImageField(default='images/default.png',upload_to='images/',blank=True,null=True)
   age=models.IntegerField(null=True,blank=True)
   address = models.CharField(max_length=50, default='worker')
+=======
+  age=models.IntegerField(null=True,blank=True)
+
+  email = models.EmailField(null=True,blank=True)
+
+  image = models.ImageField(default='images/default.png',upload_to='images/',blank=True,null=True)
+>>>>>>> 675b58f179cbf99ba3b9589762d443d9c0d1c4d3
 
   is_staff =models.BooleanField(default=False)
 
