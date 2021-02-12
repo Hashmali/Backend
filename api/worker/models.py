@@ -59,8 +59,22 @@ class User(AbstractBaseUser, PermissionsMixin):
   id_no=models.CharField(max_length=10,null=True,blank=True)
 
   id_img=models.ImageField(upload_to='images/',blank=True,null=True)
+  
+
+  driving_license_img=models.ImageField(upload_to='images/',blank=True,null=True)
+
+  work_license_israel=models.CharField(max_length=50,null=True,blank=True)
+
+  work_license_type=models.CharField(max_length=50,null=True,blank=True)
+
+  work_license_expire=models.CharField(max_length=50,null=True,blank=True)
 
   age=models.IntegerField(null=True,blank=True)
+
+  address=models.CharField(max_length=100,null=True,blank=True)
+
+  pay_per_day=models.CharField(max_length=100,null=True,blank=True)
+
 
   email = models.EmailField(null=True,blank=True)
 
