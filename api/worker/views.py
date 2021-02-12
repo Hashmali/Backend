@@ -9,6 +9,8 @@ from .serializers import UserSerializer,RegistrationSerializer,LogoutSerializer
 from .models import User
 from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404
+from rest_framework.parsers import MultiPartParser
+from rest_framework.parsers import JSONParser
 
 
 User = get_user_model()
@@ -49,6 +51,7 @@ class UpdateUserView(RetrieveUpdateDestroyAPIView):
         return queryset
     serializer_class = UserSerializer
     permission_classes=(IsAuthenticated,IsAdminUser)
+    parser_classes = [MultiPartParser,JSONParser]
 
 
 
