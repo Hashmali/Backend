@@ -2,7 +2,7 @@ from .serializers import InfoSerializers,CarSerializer
 from rest_framework.permissions import IsAuthenticated,IsAdminUser
 from rest_framework.generics import RetrieveUpdateDestroyAPIView,RetrieveUpdateAPIView,RetrieveAPIView
 from .models import Info,Car
-
+from rest_framework.parsers import MultiPartParser
 
 class InfoUpdateView(RetrieveUpdateAPIView):
     def get_queryset(self):
@@ -10,7 +10,7 @@ class InfoUpdateView(RetrieveUpdateAPIView):
         return queryset
     serializer_class=InfoSerializers
     permission_classes=[IsAuthenticated,IsAdminUser]
-
+    parser_classes = [MultiPartParser]
 class InfoListView(RetrieveAPIView):
     def get_queryset(self):
         queryset = Info.objects.filter(id=self.kwargs["pk"])
