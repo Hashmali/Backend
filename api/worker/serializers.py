@@ -33,7 +33,6 @@ class RegistrationSerializer(serializers.ModelSerializer):
 	def create(self, validated_data):
 		user = User.objects.create(
 			phone=validated_data['phone'],
-			image=validated_data['image'],
 			first_name=validated_data['first_name'],
 			second_name=validated_data['second_name'],
         	is_admin=validated_data['is_admin']
