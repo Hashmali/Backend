@@ -56,6 +56,10 @@ class User(AbstractBaseUser, PermissionsMixin):
 
   username = None
 
+  id_no=models.CharField(max_length=10,null=True,blank=True)
+
+  id_img=models.ImageField(upload_to='images/',blank=True,null=True)
+
   age=models.IntegerField(null=True,blank=True)
 
   email = models.EmailField(null=True,blank=True)

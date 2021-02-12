@@ -1,11 +1,6 @@
-from django.shortcuts import render
 from .serializers import InfoSerializers,CarSerializer
-from rest_framework import mixins
 from rest_framework.permissions import IsAuthenticated,IsAdminUser
-from rest_framework import status
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from rest_framework.generics import RetrieveUpdateDestroyAPIView,RetrieveUpdateAPIView,ListAPIView,RetrieveAPIView
+from rest_framework.generics import RetrieveUpdateDestroyAPIView,RetrieveUpdateAPIView,RetrieveAPIView
 from .models import Info,Car
 
 
