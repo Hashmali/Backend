@@ -1,11 +1,4 @@
-from django.http import request
-from django.shortcuts import render
-from rest_framework import mixins
 from rest_framework.permissions import IsAuthenticated,IsAdminUser
-from rest_framework import status
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from rest_framework import generics
 from rest_framework.generics import RetrieveUpdateDestroyAPIView,ListAPIView,CreateAPIView,ListCreateAPIView
 from .serializers import ProjectSerializer,FileSerializers
 from .models import Project,File
@@ -16,15 +9,6 @@ class ProjectView(ListAPIView):
     queryset=Project.objects.all()
    # permission_classes=(IsAuthenticated,)
    
-
-
-
-
-   
-
-
-   
-
    
 
 class FileView(RetrieveUpdateDestroyAPIView):

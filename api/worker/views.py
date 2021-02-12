@@ -3,7 +3,6 @@ from rest_framework import mixins
 from rest_framework.permissions import IsAuthenticated,IsAdminUser
 from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.views import APIView
 from rest_framework import generics
 from rest_framework.generics import RetrieveUpdateDestroyAPIView,RetrieveAPIView
 from .serializers import UserSerializer,RegistrationSerializer,LogoutSerializer
@@ -38,7 +37,6 @@ class LogoutView(generics.GenericAPIView,mixins.ListModelMixin,mixins.CreateMode
     serializer_class=LogoutSerializer
     queryset= User.objects.all()
     def get(self,request,*args,**kwargs):
-        #simply delete the token to force a login
         request.user.auth_token.delete()
         content = 'success'
         return Response(content,status=status.HTTP_200_OK)
