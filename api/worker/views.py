@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework import mixins
 from rest_framework.permissions import IsAuthenticated,IsAdminUser
 from rest_framework import status
@@ -9,8 +8,7 @@ from .serializers import UserSerializer,RegistrationSerializer,LogoutSerializer
 from .models import User
 from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404
-from rest_framework.parsers import MultiPartParser
-from rest_framework.parsers import JSONParser
+from rest_framework.parsers import MultiPartParser,JSONParser
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
