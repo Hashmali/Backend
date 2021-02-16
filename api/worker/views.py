@@ -7,7 +7,6 @@ from rest_framework.generics import RetrieveUpdateDestroyAPIView,RetrieveAPIView
 from .serializers import UserSerializer,RegistrationSerializer,LogoutSerializer
 from .models import User
 from django.contrib.auth import get_user_model
-from django.shortcuts import get_object_or_404
 from rest_framework.parsers import MultiPartParser,JSONParser
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
@@ -59,8 +58,8 @@ class UpdateUserView(RetrieveUpdateDestroyAPIView):
     def get_queryset(self):
         queryset = User.objects.filter(id=self.kwargs["pk"])
         return queryset
-    serializer_class = UserSerializer
-    permission_classes=(IsAuthenticated,IsAdminUser)
+    serializer_class = RegistrationSerializer
+   # permission_classes=(IsAuthenticated,IsAdminUser)
     parser_classes = [MultiPartParser,JSONParser]
 
 
