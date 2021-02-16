@@ -59,7 +59,7 @@ class UpdateUserView(RetrieveUpdateDestroyAPIView):
         queryset = User.objects.filter(id=self.kwargs["pk"])
         return queryset
     serializer_class = RegistrationSerializer
-   # permission_classes=(IsAuthenticated,IsAdminUser)
+    permission_classes=(IsAuthenticated,IsAdminUser)
     parser_classes = [MultiPartParser,JSONParser]
 
 
