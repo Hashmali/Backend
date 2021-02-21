@@ -4,7 +4,7 @@ class Project(models.Model):
    
     property_type=models.CharField(max_length=20,null=True)
 
-    image=models.ImageField(upload_to='images/',blank=True,null=True)
+    building_image=models.ImageField(upload_to='images/',blank=True,null=True)
 
     project_code=models.CharField(max_length=20,blank=True,null=True)
 
@@ -40,6 +40,11 @@ class Project(models.Model):
 
     owner_email=models.EmailField(blank=True)
 
+    progress=models.FloatField(blank=True,null=True)
+
+    class Meta:
+        ordering = ('project_code',)
+        
     REQUIRED_FIELDS=['property_type','project_code']
     def __str__(self):
       if not self.project_code:

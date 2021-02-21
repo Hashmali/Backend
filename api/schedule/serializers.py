@@ -7,7 +7,7 @@ from api.project.serializers import ProjectSerializer
 
 
 class ScheduleSerializers(serializers.ModelSerializer):
-    wroker=UserSerializer(read_only=True)
+    worker=UserSerializer(read_only=True)
     project=ProjectSerializer(read_only=True)
     class Meta:
         model=Schedule

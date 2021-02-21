@@ -78,7 +78,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
   email = models.EmailField(null=True,blank=True)
 
-  image = models.ImageField(default='images/default.png',upload_to='images/',blank=True,null=True)
+  image = models.ImageField(upload_to='images/',blank=True,null=True)
 
   is_staff =models.BooleanField(default=False)
 
@@ -94,7 +94,8 @@ class User(AbstractBaseUser, PermissionsMixin):
   date_joined = models.DateTimeField(auto_now_add=True)
     
   #token = models.CharField(max_length=100, default=0)
-
+  class Meta:
+        ordering = ('phone',)
   objects = UserManager()
 
   USERNAME_FIELD = 'phone'

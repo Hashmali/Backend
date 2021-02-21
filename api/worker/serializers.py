@@ -37,6 +37,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
 			phone=validated_data['phone'],
 			first_name=validated_data['first_name'],
 			second_name=validated_data['second_name'],
+			image=validated_data['image'],
         	is_admin=validated_data['is_admin'],
 			id_no=validated_data['id_no'],
 			id_img=validated_data['id_img'],
@@ -58,6 +59,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
 	def update(self, instance, validated_data):
 		instance.phone = validated_data.get('phone', instance.phone)
 		instance.first_name = validated_data.get('first_name', instance.first_name)
+		instance.image = validated_data.get('image', instance.image)
 		instance.second_name = validated_data.get('second_name', instance.second_name)
 		instance.is_admin = validated_data.get('is_admin', instance.is_admin)
 		instance.id_no = validated_data.get('id_no', instance.id_no)
@@ -67,7 +69,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
 		instance.work_license_type = validated_data.get('work_license_type', instance.work_license_type)
 		instance.address = validated_data.get('address', instance.address)
 		instance.pay_per_day = validated_data.get('pay_per_day', instance.work_license_expire)
-		instance.email = validated_data.get('work_license_expire', instance.work_license_expire)
+		instance.email = validated_data.get('email', instance.email)
 		instance.age = validated_data.get('age', instance.age)
 		instance.set_password(validated_data['password'])
 		instance.save()

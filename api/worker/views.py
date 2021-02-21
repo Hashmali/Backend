@@ -68,11 +68,11 @@ class UpdateUserView(RetrieveUpdateDestroyAPIView):
 
 class UserViewView(RetrieveAPIView):
     
-    queryset= User.objects.all()
+    def get_queryset(self):
+        queryset = User.objects.filter(id=self.kwargs["pk"])
+        return queryset
     serializer_class = UserSerializer
     permission_classes=(IsAuthenticated,)
     parser_classes = [MultiPartParser,JSONParser]
     
-    def get_queryset(self):
-        queryset = User.objects.filter(id=self.kwargs["pk"])
-        return queryset
+    

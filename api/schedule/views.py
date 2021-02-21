@@ -17,7 +17,7 @@ class ScheduleListView(ListAPIView):
 class ScheduleCreateView(CreateAPIView):
     queryset=Schedule.objects.all()
     serializer_class=ScheduleSerializers
-    permission_classes=(IsAuthenticated,)
+   # permission_classes=(IsAuthenticated,)
     
 
 
