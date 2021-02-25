@@ -6,7 +6,7 @@ from api.project.serializers import ProjectSerializer
 
 
 
-class ScheduleSerializers(serializers.ModelSerializer):
+class ScheduleListSerializers(serializers.ModelSerializer):
     worker=UserSerializer(read_only=True)
     project=ProjectSerializer(read_only=True)
     class Meta:
@@ -15,3 +15,14 @@ class ScheduleSerializers(serializers.ModelSerializer):
             '__all__'
         )
         depth = 1
+
+
+
+
+
+class ScheduleUpdateSerializers(serializers.ModelSerializer):
+    class Meta:
+        model=Schedule
+        fields=(
+            '__all__'
+        )

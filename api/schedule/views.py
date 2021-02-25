@@ -1,23 +1,26 @@
 from rest_framework.generics import CreateAPIView,RetrieveUpdateDestroyAPIView,ListAPIView
-from .serializers import ScheduleSerializers
+from .serializers import ScheduleUpdateSerializers,ScheduleListSerializers
 from .models import Schedule
 from rest_framework.permissions import IsAuthenticated,IsAdminUser
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from rest_framework import generics
+from rest_framework.parsers import MultiPartParser,JSONParser
+
 
 
 
 class ScheduleListView(ListAPIView):
     queryset=Schedule.objects.all()
-    serializer_class=ScheduleSerializers
-    permission_classes=(IsAuthenticated,)
+    serializer_class=ScheduleListSerializers
+   # permission_classes=(IsAuthenticated,)
+    parser_classes = [MultiPartParser,JSONParser]
+
 
 
 class ScheduleCreateView(CreateAPIView):
     queryset=Schedule.objects.all()
-    serializer_class=ScheduleSerializers
+    serializer_class=ScheduleUpdateSerializers
    # permission_classes=(IsAuthenticated,)
+    parser_classes = [MultiPartParser,JSONParser]
+
     
 
 
@@ -27,6 +30,8 @@ class ScheduleUpdateDeleteView(RetrieveUpdateDestroyAPIView):
     def get_queryset(self):
         queryset = Schedule.objects.filter(id=self.kwargs["pk"])
         return queryset
-    serializer_class=ScheduleSerializers
+    serializer_class=ScheduleUpdateSerializers
     permission_classes=(IsAuthenticated,)
+    parser_classes = [MultiPartParser,JSONParser]
+
 

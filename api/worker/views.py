@@ -72,7 +72,7 @@ class UserViewView(RetrieveAPIView):
         queryset = User.objects.filter(id=self.kwargs["pk"])
         return queryset
     serializer_class = UserSerializer
-    permission_classes=(IsAuthenticated,)
+    #permission_classes=(IsAuthenticated,)
     parser_classes = [MultiPartParser,JSONParser]
     
     

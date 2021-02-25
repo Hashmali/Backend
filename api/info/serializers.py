@@ -8,7 +8,7 @@ class CarSerializer(serializers.ModelSerializer):
         model=Car
         fields="__all__"
 
-class InfoSerializers(serializers.ModelSerializer):
+class InfoListSerializers(serializers.ModelSerializer):
     car=CarSerializer(many=True,read_only=True)
     user1=UserSerializer(read_only=True)
     user2=UserSerializer(read_only=True)
@@ -18,5 +18,14 @@ class InfoSerializers(serializers.ModelSerializer):
             '__all__'
             )
         depth = 1
+
+
+class InfoManageSerializers(serializers.ModelSerializer):
+    class Meta:
+        model=Info
+        fields=(
+            'company_name','logo','manager','deputy_director','car'
+            )
+        
 
 

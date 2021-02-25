@@ -1,4 +1,4 @@
-from .serializers import InfoSerializers,CarSerializer
+from .serializers import InfoManageSerializers,InfoListSerializers,CarSerializer
 from rest_framework.permissions import IsAuthenticated,IsAdminUser
 from rest_framework.generics import RetrieveUpdateDestroyAPIView,RetrieveUpdateAPIView,RetrieveAPIView
 from .models import Info,Car
@@ -9,7 +9,7 @@ class InfoUpdateView(RetrieveUpdateAPIView):
     def get_queryset(self):
         queryset = Info.objects.filter(id=self.kwargs["pk"])
         return queryset
-    serializer_class=InfoSerializers
+    serializer_class=InfoManageSerializers
     permission_classes=[IsAuthenticated,IsAdminUser]
     parser_classes = [MultiPartParser,JSONParser]
 
@@ -17,8 +17,10 @@ class InfoListView(RetrieveAPIView):
     def get_queryset(self):
         queryset = Info.objects.filter(id=self.kwargs["pk"])
         return queryset    
-    serializer_class=InfoSerializers
+    serializer_class=InfoListSerializers
     permission_classes=[IsAuthenticated,]
+
+    
 class CarView(RetrieveUpdateDestroyAPIView):
     serializer_class=CarSerializer
     def get_queryset(self):

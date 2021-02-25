@@ -16,10 +16,6 @@ class ProjectView(ListAPIView):
 class FileView(RetrieveUpdateDestroyAPIView):
     serializer_class=FileSerializers
     queryset=File.objects.all()
-    #def get_queryset(self):
-    #    queryset = File.objects.filter(id=self.kwargs["pk"])
-      #  return queryset
-   
 
 class CreateFileView(CreateAPIView):
     serializer_class=FileSerializers

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework.generics import RetrieveUpdateDestroyAPIView,CreateAPIView,RetrieveUpdateDestroyAPIView,ListAPIView
-from .serializers import ExpenseSerializers,IncomeSerializer
+from .serializers import ExpenseSerializers,IncomeListSerializer,IncomeManageSerializer
 from .models import Income,Expense
 from rest_framework.permissions import IsAuthenticated,IsAdminUser
 from rest_framework.parsers import MultiPartParser,JSONParser
@@ -30,20 +30,20 @@ class UpdateIncomeView(RetrieveUpdateDestroyAPIView):
     def get_queryset(self):
         queryset = Income.objects.filter(id=self.kwargs["pk"])
         return queryset
-    serializer_class=IncomeSerializer
+    serializer_class=IncomeManageSerializer
     #permission_classes=(IsAuthenticated,IsAdminUser)
     parser_classes = [MultiPartParser,JSONParser]
 
 
 class ListIncomesView(ListAPIView):
     queryset=Income.objects.all()
-    serializer_class=IncomeSerializer
+    serializer_class=IncomeListSerializer
    # permission_classes=(IsAuthenticated,IsAdminUser)
     parser_classes = [MultiPartParser,JSONParser]
 
 
 class CreateIncomeView(CreateAPIView):
     queryset=Income.objects.all()
-    serializer_class=IncomeSerializer
+    serializer_class=IncomeManageSerializer
    # permission_classes=(IsAuthenticated,IsAdminUser)
     parser_classes = [MultiPartParser,JSONParser]
