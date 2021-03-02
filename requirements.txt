@@ -7,7 +7,7 @@ django-filebrowser==3.13.2
 django-grappelli==2.14.3
 django-multitype-file-field==0.0.5
 djangorestframework==3.12.2
-generics==3.0.0
+generics==3.2.0
 idna==2.10
 Pillow==8.0.1
 pycosat==0.6.3
