@@ -25,7 +25,7 @@ SECRET_KEY = 'srlj$(x6(i&k859q*yzh4()%ayr$rusa(qz^4djts@d8pcm=yc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["hashmali.herokuapp.com"]
+ALLOWED_HOSTS = ["https://hashmali-backend.herokuapp.com/","hashmali-backend.herokuapp.com"]
 
 
 # Application definition
