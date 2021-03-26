@@ -20,7 +20,7 @@ from .views import home
 
 urlpatterns = [
   path('',home,name='api.home'),
-  path('worker/',include('api.worker.urls')),
+  #path('worker/',include('api.worker.urls')),
   path('project/',include('api.project.urls')),
   path('info/',include('api.info.urls')),
   path('schedule/',include('api.schedule.urls')),
