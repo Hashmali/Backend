@@ -1,10 +1,10 @@
 from django.db import models
 
-#from api.worker.models import User
+from api.worker.models import User
 from api.project.models import Project
 
 
-class Schedule(models.Model):
+class Report(models.Model):
     title = models.CharField(max_length=30,blank=True, null=True)
    # worker=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     description=models.TextField(blank=True, null=True)
