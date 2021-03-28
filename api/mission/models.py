@@ -3,6 +3,7 @@ from api.worker.models import User
 from api.project.models import Project
 
 class Mission(models.Model):
+    title=models.CharField(max_length=100,null=True,blank=False)
     worker=models.ForeignKey(User,on_delete=models.CASCADE)
     project=models.ForeignKey(Project,on_delete=models.CASCADE)
     date=models.DateField()
@@ -10,7 +11,7 @@ class Mission(models.Model):
 
 
     def __str__(self):
-        return data+worker
+        return self.title
 
 
 
