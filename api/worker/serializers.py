@@ -14,11 +14,9 @@ class UserSerializer(serializers.ModelSerializer):
 
 class RegistrationSerializer(serializers.ModelSerializer):
 
-	password2= serializers.CharField(style={'input_type': 'password'}, write_only=True)
-
 	class Meta:
 		model = User
-		fields = ('phone', 'password', 'password2','first_name','second_name','is_admin','image','id_no','id_img','driving_license_img'
+		fields = ('phone', 'password','first_name','second_name','is_admin','image','id_no','id_img','driving_license_img'
 		,'work_license_israel','work_license_type','work_license_expire','age','address','pay_per_day'
 		,'email')
 		extra_kwargs = {
@@ -26,12 +24,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
 		}	
 
 
-	def validate(self, attrs):
-		if attrs['password'] != attrs['password2']:
-           	 raise serializers.ValidationError({"password": "Password fields didn't match."})
-
-		return attrs
-
+	
 	def create(self, validated_data):
 		user = User.objects.create(
 			phone=validated_data['phone'],
@@ -71,7 +64,8 @@ class RegistrationSerializer(serializers.ModelSerializer):
 		instance.pay_per_day = validated_data.get('pay_per_day', instance.work_license_expire)
 		instance.email = validated_data.get('email', instance.email)
 		instance.age = validated_data.get('age', instance.age)
-		instance.set_password(validated_data['password'])
+		if 'password' in validated_data:
+			instance.set_password(validated_data['password'])
 		instance.save()
 		return instance
 
