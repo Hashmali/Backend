@@ -6,6 +6,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.conf import settings
 from django.core.validators import RegexValidator
+from django.contrib.auth.models import PermissionsMixin
 
 
 class UserManager(BaseUserManager):
@@ -66,7 +67,7 @@ class UserManager(BaseUserManager):
     return user
 
 
-class User(AbstractBaseUser):
+class User(AbstractBaseUser,PermissionsMixin):
 
   id_img=models.ImageField(upload_to='images/',blank=True,null=True)
 
