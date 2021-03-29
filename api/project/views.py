@@ -16,10 +16,12 @@ class ProjectView(ListAPIView):
 class FileView(RetrieveUpdateDestroyAPIView):
     serializer_class=FileSerializers
     queryset=File.objects.all()
+    parser_classes = [MultiPartParser,JSONParser]
 
 class CreateFileView(CreateAPIView):
     serializer_class=FileSerializers
     queryset=File.objects.all()
+    parser_classes = [MultiPartParser,JSONParser]
 
 class CreateProjectView(CreateAPIView):
     serializer_class=ProjectSerializer

@@ -6,7 +6,7 @@ from api.project.models import Project
 
 class Report(models.Model):
     title = models.CharField(max_length=30,blank=True, null=True)
-   # worker=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    worker=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     description=models.TextField(blank=True, null=True)
     date=models.DateField()
     start_hour=models.TimeField()
