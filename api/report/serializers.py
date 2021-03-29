@@ -1,16 +1,16 @@
 from rest_framework import serializers
-from .models import Schedule
-#from api.worker.serializers import UserSerializer
+from .models import Report
+from api.worker.serializers import UserSerializer
 from api.project.serializers import ProjectSerializer
 
 
 
 
-class ScheduleListSerializers(serializers.ModelSerializer):
-  #  worker=UserSerializer(read_only=True)
+class ReportListSerializers(serializers.ModelSerializer):
+    worker=UserSerializer(read_only=True)
     project=ProjectSerializer(read_only=True)
     class Meta:
-        model=Schedule
+        model=Report
         fields=(
             '__all__'
         )
@@ -20,9 +20,9 @@ class ScheduleListSerializers(serializers.ModelSerializer):
 
 
 
-class ScheduleUpdateSerializers(serializers.ModelSerializer):
+class ReportUpdateSerializers(serializers.ModelSerializer):
     class Meta:
-        model=Schedule
+        model=Report
         fields=(
             '__all__'
         )

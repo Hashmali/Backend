@@ -1,23 +1,23 @@
 from rest_framework.generics import CreateAPIView,RetrieveUpdateDestroyAPIView,ListAPIView
-from .serializers import ScheduleUpdateSerializers,ScheduleListSerializers
-from .models import Schedule
+from .serializers import ReportUpdateSerializers,ReportListSerializers
+from .models import Report
 from rest_framework.permissions import IsAuthenticated,IsAdminUser
 from rest_framework.parsers import MultiPartParser,JSONParser
 
 
 
 
-class ScheduleListView(ListAPIView):
-    queryset=Schedule.objects.all()
-    serializer_class=ScheduleListSerializers
+class ReportListView(ListAPIView):
+    queryset=Report.objects.all()
+    serializer_class=ReportListSerializers
    # permission_classes=(IsAuthenticated,)
     parser_classes = [MultiPartParser,JSONParser]
 
 
 
-class ScheduleCreateView(CreateAPIView):
-    queryset=Schedule.objects.all()
-    serializer_class=ScheduleUpdateSerializers
+class ReportCreateView(CreateAPIView):
+    queryset=Report.objects.all()
+    serializer_class=ReportUpdateSerializers
    # permission_classes=(IsAuthenticated,)
     parser_classes = [MultiPartParser,JSONParser]
 
@@ -26,11 +26,11 @@ class ScheduleCreateView(CreateAPIView):
 
 
 
-class ScheduleUpdateDeleteView(RetrieveUpdateDestroyAPIView):
+class ReportUpdateDeleteView(RetrieveUpdateDestroyAPIView):
     def get_queryset(self):
-        queryset = Schedule.objects.filter(id=self.kwargs["pk"])
+        queryset = Report.objects.filter(id=self.kwargs["pk"])
         return queryset
-    serializer_class=ScheduleUpdateSerializers
+    serializer_class=ReportUpdateSerializers
     permission_classes=(IsAuthenticated,)
     parser_classes = [MultiPartParser,JSONParser]
 
