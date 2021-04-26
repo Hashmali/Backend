@@ -4,7 +4,7 @@ class Project(models.Model):
    
     property_type=models.CharField(max_length=20,null=True)
 
-    building_image=models.ImageField(upload_to='images/',blank=True,null=True)
+    building_image=models.URLField(default="")
 
     project_code=models.CharField(max_length=20,blank=True,null=True)
 

@@ -12,7 +12,7 @@ class Report(models.Model):
     start_hour=models.TimeField()
     ending_hour=models.TimeField()
     project=models.ForeignKey(Project,on_delete=models.CASCADE,null=True)
-    image = models.ImageField(upload_to='images/',blank=True,null=True)
+    image = models.URLField(default="")
 
     def __str__(self):
         if not self.title:

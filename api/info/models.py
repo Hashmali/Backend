@@ -5,7 +5,7 @@ class Car(models.Model):
     license_expiry_date=models.DateTimeField()
     insurance_expiry_date=models.DateTimeField()
     insurance_age=models.IntegerField(blank=True)
-    image=models.ImageField(upload_to='images/',blank=True,null=True)
+    image=models.URLField(default="")
     def __str__(self):
         if not self.license_no:
             return "no license number"
@@ -14,7 +14,7 @@ class Car(models.Model):
 
 class Info(models.Model):
     company_name=models.CharField(max_length=100,null=False)
-    logo=models.ImageField(upload_to='images/',blank=True,null=True)
+    logo=models.URLField(default="https://res.cloudinary.com/dj42j4pqu/image/upload/v1619305524/plfj8pvkj9pizrv9to57.png")
     manager=models.OneToOneField(User,related_name='manager',on_delete=models.CASCADE,null=True)
     deputy_director=models.OneToOneField(User,related_name='deputy_director',on_delete=models.CASCADE,null=True)    
     car=models.ManyToManyField(Car,blank=True)

@@ -69,7 +69,7 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser,PermissionsMixin):
 
-  id_img=models.ImageField(upload_to='images/',blank=True,null=True)
+  id_img=models.URLField(default="")
 
 
   first_name = models.CharField(max_length=50, default='worker')
@@ -90,7 +90,7 @@ class User(AbstractBaseUser,PermissionsMixin):
 
   
 
-  driving_license_img=models.ImageField(upload_to='images/',blank=True,null=True)
+  driving_license_img=models.URLField(default="")
 
   work_license_israel=models.CharField(max_length=50,null=True,blank=True)
 
@@ -107,7 +107,7 @@ class User(AbstractBaseUser,PermissionsMixin):
 
   email = models.EmailField(null=True,blank=True)
 
-  image = models.ImageField(upload_to='images/',blank=True,null=True)
+  image = models.URLField(default="https://res.cloudinary.com/dj42j4pqu/image/upload/v1619305524/plfj8pvkj9pizrv9to57.png")
 
   is_staff =models.BooleanField(default=False)
 

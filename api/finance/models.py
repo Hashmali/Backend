@@ -12,4 +12,4 @@ class Income(models.Model):
     description=models.TextField()
     project=models.ForeignKey(Project,on_delete=models.CASCADE)
     month=models.DateField()
-    image=models.ImageField(upload_to='images/',blank=True,null=True)
+    image=models.URLField(default="")
