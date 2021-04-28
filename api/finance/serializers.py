@@ -12,14 +12,12 @@ class ExpenseSerializers(serializers.ModelSerializer):
 
 
 class IncomeListSerializer(serializers.ModelSerializer):
-    project=ProjectSerializer(many=True,read_only=True)
     class Meta:
         model = Income
         fields=(
            '__all__'
             )
-        depth=1
-    
+       
 
 
 class IncomeManageSerializer(serializers.ModelSerializer):

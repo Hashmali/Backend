@@ -39,7 +39,6 @@ class ListIncomesView(ListAPIView):
     queryset=Income.objects.all()
     serializer_class=IncomeListSerializer
    # permission_classes=(IsAuthenticated,IsAdminUser)
-    parser_classes = [MultiPartParser,JSONParser]
 
 
 class CreateIncomeView(CreateAPIView):
