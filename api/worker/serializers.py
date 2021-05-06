@@ -17,7 +17,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = User
 		fields = ('phone', 'password','first_name','second_name','is_admin','image','id_no','id_img','driving_license_img'
-		,'work_license_israel','work_license_type','work_license_expire','imageTest','age','address','pay_per_day'
+		,'work_license_israel','work_license_type','work_license_expire','age','address','pay_per_day'
 		,'email')
 		extra_kwargs = {
 				'password': {'write_only': True},
