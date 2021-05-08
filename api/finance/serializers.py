@@ -12,6 +12,7 @@ class ExpenseSerializers(serializers.ModelSerializer):
 
 
 class IncomeListSerializer(serializers.ModelSerializer):
+    project=ProjectSerializer(read_only=True)
     class Meta:
         model = Income
         fields=(

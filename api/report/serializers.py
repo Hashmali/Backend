@@ -7,6 +7,8 @@ from api.project.serializers import ProjectSerializer
 
 
 class ReportListSerializers(serializers.ModelSerializer):
+    worker=UserSerializer(read_only=True)
+    project=ProjectSerializer(read_only=True)
     class Meta:
         model=Report
         fields=(
