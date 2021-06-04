@@ -10,7 +10,7 @@ from rest_framework.parsers import MultiPartParser,JSONParser
 class ReportListView(ListAPIView):
     queryset=Report.objects.all()
     serializer_class=ReportListSerializers
-   # permission_classes=(IsAuthenticated,)
+    permission_classes=(IsAuthenticated,)
     parser_classes = [MultiPartParser,JSONParser]
 
 
@@ -18,7 +18,7 @@ class ReportListView(ListAPIView):
 class ReportCreateView(CreateAPIView):
     queryset=Report.objects.all()
     serializer_class=ReportUpdateSerializers
-   # permission_classes=(IsAuthenticated,)
+    permission_classes=(IsAuthenticated,)
     parser_classes = [MultiPartParser,JSONParser]
 
     

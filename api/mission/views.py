@@ -9,7 +9,7 @@ from rest_framework.parsers import JSONParser
 class MissionListView(ListAPIView):
     queryset=Mission.objects.all()
     serializer_class=MissionListSerializer
-    #permission_classes=(IsAuthenticated)
+    permission_classes=[IsAuthenticated,]
 
 
 
@@ -17,7 +17,7 @@ class MissionListView(ListAPIView):
 class MissionCreateView(CreateAPIView):
     queryset=Mission.objects.all()
     serializer_class=MissionUpdateSerializer
-   # permission_classes=(IsAuthenticated,IsAdminUser)
+    permission_classes=[IsAuthenticated,IsAdminUser]
     parser_classes = [MultiPartParser,JSONParser]
 
     
@@ -30,7 +30,7 @@ class MissionUpdateDeleteView(RetrieveUpdateDestroyAPIView):
         queryset = Mission.objects.filter(id=self.kwargs["pk"])
         return queryset
     serializer_class=MissionUpdateSerializer
-    permission_classes=(IsAuthenticated,IsAdminUser)
+    permission_classes=[IsAuthenticated,IsAdminUser]
     parser_classes = [MultiPartParser,JSONParser]
 
 

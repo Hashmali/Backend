@@ -8,7 +8,7 @@ from rest_framework.parsers import MultiPartParser,JSONParser
 class ProjectView(ListAPIView):
     serializer_class=ProjectSerializer
     queryset=Project.objects.all()
-   # permission_classes=(IsAuthenticated,)
+    permission_classes=(IsAuthenticated,)
     parser_classes = [MultiPartParser,JSONParser]
 
    

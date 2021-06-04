@@ -10,20 +10,20 @@ class UpdateExpenseView(RetrieveUpdateDestroyAPIView):
         queryset = Expense.objects.filter(id=self.kwargs["pk"])
         return queryset
     serializer_class=ExpenseSerializers
-    #permission_classes=(IsAuthenticated,IsAdminUser)
+    permission_classes=(IsAuthenticated,IsAdminUser)
     parser_classes = [MultiPartParser,JSONParser]
 
 
 class ListExpensesView(ListAPIView):
     queryset=Expense.objects.all()
     serializer_class=ExpenseSerializers
-    #permission_classes=(IsAuthenticated,IsAdminUser)
+    permission_classes=(IsAuthenticated,IsAdminUser)
 
 
 class CreateExpenseView(CreateAPIView):
     queryset=Expense.objects.all()
     serializer_class=ExpenseSerializers
-    #permission_classes=(IsAuthenticated,IsAdminUser)
+    permission_classes=(IsAuthenticated,IsAdminUser)
     parser_classes = [MultiPartParser,JSONParser]
 
 class UpdateIncomeView(RetrieveUpdateDestroyAPIView):
@@ -31,18 +31,18 @@ class UpdateIncomeView(RetrieveUpdateDestroyAPIView):
         queryset = Income.objects.filter(id=self.kwargs["pk"])
         return queryset
     serializer_class=IncomeManageSerializer
-    #permission_classes=(IsAuthenticated,IsAdminUser)
+    permission_classes=(IsAuthenticated,IsAdminUser)
     parser_classes = [MultiPartParser,JSONParser]
 
 
 class ListIncomesView(ListAPIView):
     queryset=Income.objects.all()
     serializer_class=IncomeListSerializer
-   # permission_classes=(IsAuthenticated,IsAdminUser)
+    permission_classes=(IsAuthenticated,IsAdminUser)
 
 
 class CreateIncomeView(CreateAPIView):
     queryset=Income.objects.all()
     serializer_class=IncomeManageSerializer
-   # permission_classes=(IsAuthenticated,IsAdminUser)
+    permission_classes=(IsAuthenticated,IsAdminUser)
     parser_classes = [MultiPartParser,JSONParser]
