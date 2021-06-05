@@ -5,7 +5,7 @@ from api.project.models import Project
 class Mission(models.Model):
     title=models.CharField(max_length=100,null=True,blank=False)
     worker=models.ForeignKey(User,on_delete=models.CASCADE)
-    project=models.ForeignKey(Project,on_delete=models.CASCADE)
+    project=models.ForeignKey(Project,on_delete=models.CASCADE,null=True)
     date=models.DateField()
     description=models.TextField()
 

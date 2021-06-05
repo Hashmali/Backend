@@ -12,6 +12,6 @@ class Income(models.Model):
     title=models.CharField(max_length=100,default="title")
     amount=models.IntegerField()
     description=models.TextField()
-    project=models.ForeignKey(Project,on_delete=models.CASCADE)
+    project=models.ManyToManyField(Project)
     month=models.DateField()
     image=models.URLField(default="")
