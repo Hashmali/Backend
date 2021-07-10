@@ -87,11 +87,14 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'freedbtech_hashmali',
-        'USER': 'freedbtech_hashmali',
-        'PASSWORD': 'ahmad1234',
-        'HOST': 'freedb.tech',
+        'NAME': 'heroku_bf3fd766bb58dc2',
+        'USER': 'b8ca4143690706',
+        'PASSWORD': '8763c807',
+        'HOST': 'us-cdbr-east-04.cleardb.com',
         'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
     }
 }
 
