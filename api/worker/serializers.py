@@ -16,7 +16,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = User
-		fields = ('phone', 'password','first_name','second_name','is_admin','image','id_no','id_img','driving_license_img'
+		fields = ('phone', 'password','first_name','second_name','is_admin','is_staff','image','id_no','id_img','driving_license_img'
 		,'work_license_israel','work_license_type','work_license_expire','age','address','pay_per_day'
 		,'email')
 		extra_kwargs = {
@@ -32,6 +32,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
 			second_name=validated_data['second_name'],
 			image=validated_data['image'],
         	is_admin=validated_data['is_admin'],
+			is_staff=validated_data['is_staff'],
 			id_no=validated_data['id_no'],
 			id_img=validated_data['id_img'],
 			driving_license_img=validated_data['driving_license_img'],
@@ -55,6 +56,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
 		instance.image = validated_data.get('image', instance.image)
 		instance.second_name = validated_data.get('second_name', instance.second_name)
 		instance.is_admin = validated_data.get('is_admin', instance.is_admin)
+		instance.is_staff = validated_data.get('is_admin', instance.is_staff)
 		instance.id_no = validated_data.get('id_no', instance.id_no)
 		instance.id_img = validated_data.get('id_img', instance.id_img)
 		instance.driving_license_img = validated_data.get('driving_license_img', instance.driving_license_img)
